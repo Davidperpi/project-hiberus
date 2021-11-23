@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+
+.card {
+    margin: auto;
+    width: 50%;
+    background-color: #c0c0c030;
+}
+
+.row {
+    height: 100vh;
+}
+
+.alert-danger {
+    background-color: white;
+    border: none;
+    background-color: #f3f3f3;
+    margin-top: 8px;
+}

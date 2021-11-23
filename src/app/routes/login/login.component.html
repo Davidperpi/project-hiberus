@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="card shadow">
+            <div class="card-body">
+                <form [formGroup]="loginForm" (ngSubmit)="sendUser()">
+                    <div class="mb-3">
+                        <label for="usernameInput" class="form-label">{{ 'login.forms.email' | translate }}</label>
+                        <input type="email" class="form-control" id="email" formControlName="email" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="password" class="form-label">{{ 'login.forms.password' | translate }}</label>
+                        <input type="password" class="form-control" id="password" formControlName="password" required>
+                    </div>
+                    <div class="text-center mb-2 d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">{{ 'login.action.access' | translate }}</button>
+                    </div>
+                    <div class="text-center d-grid gap-2">
+                        <a routerLink="/signup" type="button" class="btn btn-secondary">
+                            {{ 'login.action.signup' | translate }}
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

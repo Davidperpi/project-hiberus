@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="card shadow">
+            <div class="card-body">
+                <form [formGroup]="signupForm" (ngSubmit)="sendRegister()">
+                    <div class="mb-3">
+                        <label for="nameInputRegister" class="form-label">{{ 'user.forms.name' | translate }}</label>
+                        <input type="text" class="form-control" id="nameRegister" formControlName="name">
+                        <div *ngIf="signupForm.controls['name'].invalid && (signupForm.controls['name'].dirty || signupForm.controls['name'].touched)" class="alert-danger">
+                            <div *ngIf="signupForm.controls['name'].errors.required">
+                                {{ 'user.forms.required.name' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="surnameInputRegister" class="form-label">{{ 'user.forms.surname' | translate }}</label>
+                        <input type="text" class="form-control" id="surnameRegister" formControlName="surname">
+                        <div *ngIf="signupForm.controls['surname'].invalid && (signupForm.controls['surname'].dirty || signupForm.controls['surname'].touched)" class="alert-danger">
+                            <div *ngIf="signupForm.controls['surname'].errors.required">
+                                {{ 'user.forms.required.surname' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passRegister" class="form-label">{{ 'user.forms.password' | translate }}</label>
+                        <input type="password" class="form-control" id="passRegister" formControlName="password" required>
+                        <div *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].dirty || signupForm.controls['password'].touched)" class="alert-danger">
+                            <div *ngIf="signupForm.controls['password'].errors.required">
+                                {{ 'user.forms.required.password' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="emailRegister" class="form-label">{{ 'user.forms.email' | translate }}</label>
+                        <input type="email" class="form-control" id="emailRegister" formControlName="email" required>
+                        <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].dirty || signupForm.controls['email'].touched)" class="alert-danger">
+                            <div *ngIf="signupForm.controls['email'].errors.required">
+                                {{ 'user.forms.required.email' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mb-2 d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">{{ 'user.action.send' | translate }}</button>
+                    </div>
+                    <div class="text-center mb-2 d-grid gap-2">
+                        <a routerLink="/" type="button" class="btn btn-secondary">
+                            {{ 'user.action.return' | translate }}
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

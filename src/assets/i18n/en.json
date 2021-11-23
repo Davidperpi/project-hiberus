@@ -1,0 +1,45 @@
+{
+    "login": {
+        "forms": {
+            "email": "Email",
+            "password": "Password"
+        },
+        "action": {
+            "access": "Access",
+            "signup": "Sign up"
+        }
+    },
+    "user": {
+        "actions": "Actions",
+        "forms": {
+
+            "name": "Name",
+            "password": "Password",
+            "email": "Email",
+            "surname": "Surname",
+            "required": {
+                "name": "* The name is required.",
+                "surname": "* The surname is required.",
+                "password": "* The password is required.",
+                "email": "* The email is required."
+            }
+        },
+        "action": {
+            "new": "New user",
+            "send": "Send",
+            "return": "Return",
+            "Close": "Close"
+        },
+        "modal": {
+            "titleMsg": "User file",
+            "titleDelMsg": "Deleting user",
+            "deleteMsg": "User has been deleted",
+            "deleteErrorMsg": "An error has occurred. Try it again later"
+        }
+    },
+    "logout": "Log out",
+    "navbar": {
+        "title": "Welcome",
+        "logout": "Log out"
+    }
+}

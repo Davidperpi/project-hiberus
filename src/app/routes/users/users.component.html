@@ -1,0 +1,107 @@
+<app-navbar [title]="titleNavbar"></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col" style="padding-right: 0;">
+            <button class="btn btn-primary new-user" (click)="openModal();" data-bs-toggle="modal" data-bs-target="#userModal">{{ 'user.action.new' | translate }}</button>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">{{ 'user.forms.name' | translate }}</th>
+                    <th scope="col">{{ 'user.forms.surname' | translate }}</th>
+                    <th scope="col">{{ 'user.forms.email' | translate }}</th>
+                    <th scope="col" style="float: right;">{{ 'user.actions' | translate }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userData">
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.surname }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <button class="btn btn-danger" (click)="deleteUser(user.id);" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="fas fa-trash"></i></button>
+                        <button class="btn btn-success" style="margin-right: 5px;" (click)="openModal(user.id);" data-bs-toggle="modal" data-bs-target="#userModal"><i class="fas fa-edit"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="userModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ 'user.modal.titleMsg' | translate }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="userForm" (ngSubmit)="actionUser()">
+                    <div class="mb-3">
+                        <label for="nameInputRegister" class="form-label">{{ 'user.forms.name' | translate }}</label>
+                        <input type="nameRegister" class="form-control" id="nameRegister" formControlName="name">
+                        <div *ngIf="userForm.controls[ 'name'].invalid && (userForm.controls[ 'name'].dirty || userForm.controls[ 'name'].touched)" class="alert-danger">
+                            <div *ngIf="userForm.controls[ 'name'].errors.required">
+                                {{ 'user.forms.required.name' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="surnameInputRegister" class="form-label">{{ 'user.forms.surname' | translate }}</label>
+                        <input type="surnameRegister" class="form-control" id="surnameRegister" formControlName="surname">
+                        <div *ngIf="userForm.controls[ 'surname'].invalid && (userForm.controls[ 'surname'].dirty || userForm.controls[ 'surname'].touched)" class="alert-danger">
+                            <div *ngIf="userForm.controls[ 'surname'].errors.required">
+                                {{ 'user.forms.required.surname' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="passRegister" class="form-label">{{ 'user.forms.password' | translate }}</label>
+                        <input type="password" class="form-control" id="passRegister" formControlName="password" required>
+                        <div *ngIf="userForm.controls[ 'password'].invalid && (userForm.controls[ 'password'].dirty || userForm.controls[ 'password'].touched)" class="alert-danger">
+                            <div *ngIf="userForm.controls[ 'password'].errors.required">
+                                {{ 'user.forms.required.password' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="emailRegister" class="form-label">{{ 'user.forms.email' | translate }}</label>
+                        <input type="email" class="form-control" id="emailRegister" formControlName="email" required>
+                        <div *ngIf="userForm.controls[ 'email'].invalid && (userForm.controls[ 'email'].dirty || userForm.controls[ 'email'].touched)" class="alert-danger">
+                            <div *ngIf="userForm.controls[ 'email'].errors.required">
+                                {{ 'user.forms.required.email' | translate }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center mb-2 d-grid gap-2">
+                        <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid" data-bs-dismiss="modal">{{ 'user.action.send' | translate }}</button>
+                    </div>
+                    <div class="text-center mb-2 d-grid gap-2">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'user.action.close' | translate }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ 'user.modal.titleDelMsg' | translate }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p *ngIf="delete; else noDelete">{{ 'user.modal.deleteMsg' | translate }}</p>
+                <ng-template #noDelete>
+                    <p>{{ 'user.modal.deleteErrorMsg' | translate }}</p>
+                </ng-template>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'user.action.close' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{
+    "login": {
+        "forms": {
+            "email": "Email",
+            "password": "Contraseña"
+        },
+        "action": {
+            "access": "Acceder",
+            "signup": "Registrarse"
+        }
+    },
+    "user": {
+        "actions": "Acciones",
+        "forms": {
+            "name": "Nombre",
+            "password": "Contraseña",
+            "email": "Email",
+            "surname": "Apellidos",
+            "required": {
+                "name": "* El nombre es obligatorio.",
+                "surname": "* Los apellidos son obligatorio.",
+                "password": "* La contraseña es obligatoria.",
+                "email": "* El email es obligatorio."
+            }
+        },
+        "action": {
+            "new": "Nuevo usuario",
+            "send": "Enviar",
+            "return": "Volver",
+            "close": "Cerrar"
+        },
+        "modal": {
+            "titleMsg": "Ficha del usuario",
+            "titleDelMsg": "Borrando usuario",
+            "deleteMsg": "El usuario se ha eliminado",
+            "deleteErrorMsg": "Ha ocurrido un error. Inténtelo de nuevo más tarde"
+        }
+    },
+    "logout": "Cerrar Sesión",
+    "navbar": {
+        "title": "Bienvenido",
+        "logout": "Cerrar Sesión"
+    }
+}

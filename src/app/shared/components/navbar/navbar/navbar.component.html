@@ -1,0 +1,12 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">{{ 'navbar.title' | translate }} {{ title }}</span>
+        <div class="d-flex">
+            <select #langSelect (change)="translate.use(langSelect.value)" class="select">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+            </select>
+            <button *ngIf="button" class="btn btn-danger" (click)="action()" style="margin-right: 5px;">{{ button }}</button>
+            <button class="btn btn-danger" (click)="logout()">{{ 'navbar.logout' | translate }}</button>
+        </div>
+    </div>
+</nav>
